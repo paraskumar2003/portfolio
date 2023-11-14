@@ -8,17 +8,19 @@ import Projects from '../components/Projects/Projects';
 import Exp from '../components/Experience/Exp';
 import Header from '../components/Home/Header';
 import Contact from '../components/Contact/Contact';
+import Technologies from '../components/Technologies/Technologies';
 
 export default function Home() {
 
-  const [welcome,setWelcome] = useState(true);
+  const [welcome, setWelcome] = useState(true);
   return (
-    <div style={{minHeight:'200vh',backgroundColor:'#000',color:'#fff'}}>
-      <Welcome/>
-      <Header/>
+    <div style={{ minHeight: '200vh', backgroundColor: '#000', color: '#fff' }}>
+      <Welcome />
+      <Header />
       <Intro />
       <Projects />
       <Exp />
+      <Technologies />
       <Contact />
     </div>
   )
