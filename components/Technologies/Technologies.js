@@ -55,7 +55,7 @@ function Technologies() {
             <div style={{ padding: '5% 1rem 1rem 1rem', width: '100%' }}>
                 <div style={{ textAlign: 'center', marginBottom: '1%' }}>
                     <Heading>Technologies</Heading>
-                    <SmallText><span style={{ width: 20, height: 2, marginRight: 10, background: '#DBDBDB' }}></span>that i have worked on</SmallText>
+                    <SmallText className='mc-small-text'><span style={{ width: 20, height: 2, marginRight: 10, background: '#DBDBDB' }}></span>that i have worked on</SmallText>
                 </div>
                 <TechGallery />
             </div>

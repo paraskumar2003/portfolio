@@ -1,7 +1,8 @@
 
 import { styled } from '@mui/material';
-import React from 'react'
+import React, { useContext } from 'react'
 import gif from '../assets/gif-arrow.gif';
+import { WelcomeContext } from '../context/WelcomeContext';
 
 const Component = styled('div')(({ theme }) => ({
 
@@ -30,7 +31,7 @@ const LeftSpan = styled('span')(({ theme }) => ({
     fontWeight: '200',
     letterSpacing: '1',
     transition: '0.2s all ease',
-    paddingRight:10
+    paddingRight: 10
 
 }))
 
@@ -47,6 +48,9 @@ const RightSpan = styled('span')(({ theme }) => ({
 const Welcome = () => {
 
 
+    const { setWelcome } = useContext(WelcomeContext);
+
+
 
     setTimeout(() => {
         const TextContainer = document.querySelector('.text-container');
@@ -54,33 +58,49 @@ const Welcome = () => {
         const leftSpan = document.querySelector('.left-span');
         const rightSpan = document.querySelector('.right-span');
         const gifImg = document.querySelector('.gif-img');
-        setTimeout(()=>{
+        setTimeout(() => {
 
             leftSpan.style.opacity = '0';
-            setTimeout(()=>{
+            setTimeout(() => {
                 leftSpan.textContent = `React`;
                 leftSpan.style.opacity = `1`;
                 rightSpan.style.backgroundColor = 'aqua';
-                setTimeout(()=>{
-                    setTimeout(()=>{
+                setTimeout(() => {
+                    setTimeout(() => {
                         // rightSpan.style.animation = 'changeToNext 0.5s linear';
                         rightSpan.style.animationDelay = '2.5s';
                         rightSpan.style.backgroundColor = `rgba(210,210,210,255)`;
                         leftSpan.style.opacity = '0';
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             leftSpan.textContent = `Next`;
                             leftSpan.style.opacity = '1';
-                            setTimeout(()=>{
+                            setTimeout(() => {
                                 gifImg.style.opacity = 1;
-                                setTimeout(()=>{
-                                    window.scrollTo(0,window.innerHeight);
-                                },500)
-                            },200)
-                        },300)
-                    },500)
-                },100)
-            },200)
-        },1000)
+                                setTimeout(() => {
+                                    // setWelcome(true);
+                                    const element = document.getElementById("home");
+                                    var offset = 40; // Adjust this value as needed
+
+                                    // Calculate the new scroll position
+                                    var targetScrollTop = element.offsetTop - offset;
+
+                                    // Smoothly scroll to the new position
+                                    window.scrollTo({
+                                        top: targetScrollTop,
+                                        behavior: 'smooth'
+                                    });
+
+                                    setTimeout(() => {
+                                        setWelcome(true);
+                                    }, 5000)
+
+                                }, 500)
+                            }, 200)
+                        }, 300)
+                    }, 500)
+                }, 100)
+            }, 200)
+        }, 1000)
     }, 1000)
 
 
@@ -108,7 +128,7 @@ const StyleSheet = {
     gif: {
         position: 'absolute',
         bottom: 0,
-        width: 200,
+        width: '20vw',
         opacity: 0,
         transition: '0.2s all ease',
     }

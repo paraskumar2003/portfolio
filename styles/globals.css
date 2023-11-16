@@ -6,6 +6,10 @@
   transition: 0.2s all ease;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
@@ -229,5 +233,20 @@ a {
 
 
 
+@media(max-width:800px){
+  .mc-techs-container{
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
 
+  .exp-data-container{
+    font-size: 14px;
+  }
+  .exp-data-container h2{
+    font-size: 16px;
+  }
+
+  .mc-small-text{
+    display: none;
+  }
+}
 

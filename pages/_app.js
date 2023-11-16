@@ -1,3 +1,4 @@
+import { WelcomeProvider } from '../context/WelcomeContext';
 import '../styles/globals.css'
 import {
   ThemeProvider,
@@ -9,9 +10,11 @@ const theme = createTheme();
 
 function MyApp({ Component, pageProps }) {
   return <ThemeProvider theme={theme}>
-  <StyledEngineProvider>
-  <Component {...pageProps} />
-  </StyledEngineProvider>
+    <StyledEngineProvider>
+      <WelcomeProvider>
+        <Component {...pageProps} />
+      </WelcomeProvider>
+    </StyledEngineProvider>
   </ThemeProvider>
 }
 

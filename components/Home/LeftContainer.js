@@ -97,7 +97,7 @@ function LeftContainer() {
   return (
     <MainContainer>
       <div style={StyleSheet.textContainer}>
-        <HeadingText className="my-name">Hi, I&apos;m Paras Kumar</HeadingText>
+        <HeadingText className="my-name">I&apos;m Paras Kumar &nbsp;&nbsp;&nbsp;</HeadingText>
         <SmallText><HypenLine></HypenLine>a full stack developer...</SmallText>
         <KeyPointsContainer style={{ marginTop: 40 }}>
           <p style={StyleSheet.mainPoints}>Develop scale-able Websites & Applications</p>

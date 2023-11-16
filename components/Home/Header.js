@@ -58,23 +58,29 @@ const CvButton = styled('button')(({ theme }) => ({
 
 function Header() {
 
+  const goToDiv = (e) => {
+    const element = document.getElementById(e);
+    var offset = 40; // Adjust this value as needed
 
-  const goToHome = () => {
-    window.scrollTo(0, 1 * window.innerHeight);
+    // Calculate the new scroll position
+    var targetScrollTop = element.offsetTop - offset;
+
+    // Smoothly scroll to the new position
+    window.scrollTo({
+      top: targetScrollTop,
+      behavior: 'smooth'
+    });
   }
-  const goToProjects = () => {
-    window.scrollTo(0, 2 * window.innerHeight);
-  }
-  const goToExp = () => {
-    window.scrollTo(0, 3.7 * window.innerHeight);
-  }
+
   return (
     <MainContainer className='header'>
       <p style={StyleSheet.name}></p>
       <div>
-        <Buttons onClick={goToHome}>Home</Buttons>
-        <Buttons onClick={goToProjects}>Projects</Buttons>
-        <Buttons onClick={goToExp}>Experience</Buttons>
+        <Buttons onClick={() => { goToDiv("home") }}>Home</Buttons>
+        <Buttons onClick={() => { goToDiv("project") }}>Projects</Buttons>
+        <Buttons onClick={() => { goToDiv("experience") }}>Experience</Buttons>
+        {/* <Buttons onClick={goToProjects}>Projects</Buttons>
+        <Buttons onClick={goToExp}>Experience</Buttons> */}
         <Link target={'_blank'} href={'https://s3.ap-south-1.amazonaws.com/cdncontentdualite.com/Project/Paras+Resume.pdf'}><CvButton>Download CV</CvButton></Link>
       </div>
     </MainContainer>
